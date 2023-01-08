@@ -17,11 +17,11 @@ int main() {
     T[7] = thread ( producer7, ref(D) );
 
     T[8] = thread ( [&]() {
-        while (T[0].joinable() || T[1].joinable() || T[2].joinable() || T[3].joinable() ||
-               T[4].joinable() || T[5].joinable() || T[6].joinable() || T[7].joinable())
+        while ( T[0].joinable() || T[1].joinable() || T[2].joinable() || T[3].joinable() ||
+                T[4].joinable() || T[5].joinable() || T[6].joinable() || T[7].joinable() )
             D.printCrackedPassOnline(); });
     
-    for (thread& t : T)  t.join();
+    for ( thread& t : T )  t.join();
     
     D.freeData();
     return 0;
