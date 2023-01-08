@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <thread>
+#include <mutex>
 #include <ctime>
 
 using std :: to_string;
@@ -28,5 +29,11 @@ using std :: endl;
 #define dictFilePath4  "data/slownik4.txt"
 #define passFilePath5  "data/hasla5.txt"
 #define dictFilePath5  "data/slownik5.txt"
+#define passFilePath6  "data/hasla6.txt"
+#define dictFilePath6  "data/slownik.txt"
+
 
 #define NumLimit 100        // limit of numbers in pre and postfix
+
+//pthread_mutex_t mutex;
+//pthread_cond_t cond;

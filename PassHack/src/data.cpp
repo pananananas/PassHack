@@ -16,6 +16,9 @@ data:: data(int dataConfig) {
     } else if (dataConfiguration == 5) {
         passPath = passFilePath5;
         dictPath = dictFilePath5;
+    } else if (dataConfiguration == 6) {
+        passPath = passFilePath6;
+        dictPath = dictFilePath6;
     } else {
         passPath = passFilePath1;
         dictPath = dictFilePath1;
@@ -29,8 +32,6 @@ bool data::loadPassData() {
     string line;
     
     while (getline(pass_file, line)) {
-        
-        // Tworzymy strumień dla aktualnej linii
         std::istringstream iss(line);
         
         // Wczytujemy dane z kolumn do zmiennych
@@ -47,6 +48,7 @@ bool data::loadPassData() {
         data.email = col3;
         data.username = col4;
         data.crackedPass = "---";
+        data.printed = false;
         passVector.push_back(data);
     }
     pass_file.close();
@@ -56,7 +58,6 @@ bool data::loadPassData() {
 
 
 bool data::loadDictData() {
-    
     
     std::ifstream dict_file(dictPath);
     string line;
@@ -84,26 +85,39 @@ void data::loadAllData() {
 void data:: printPassData() {
     cout << "\n Pass data: \n\n";
     for (const passdata& data : passVector)
-        cout << " ID: "       << data.ID
-             << ",\t hash: "  << data.hash
-             << ",\t email: " << data.email
-             << ",\t uname: " << data.username
-             << ",\t crackedPass: " << data.crackedPass
-             << std::endl;
+        cout << " ID: "  << data.ID
+        << ",\t hash: "  << data.hash
+        << ",\t email: " << data.email
+        << ",\t uname: " << data.username
+        << ",\t crackedPass: " << data.crackedPass << endl;
 }
 
 
 void data:: printCrackedPassData() {
-    
-//    cout << "\n Cracked pass data: \n\n";
+    cout << "\n\n Done. \n Cracked pass data: \n\n";
     for (const passdata& data : passVector)
-        if (data.crackedPass != "---")
-        cout << " ID: "       << data.ID
-             << ",\t hash: "  << data.hash
-             << ",\t email: " << data.email
-             << ",\t uname: " << data.username
-             << ",\t crackedPass: " << data.crackedPass
-             << std::endl;
+        if (data.crackedPass != "---" )
+            cout << " ID: "  << data.ID
+                 << ",\t hash: "  << data.hash
+                 << ",\t email: " << data.email
+                 << ",\t uname: " << data.username
+                 << ",\t crackedPass: " << data.crackedPass << endl;
+}
+
+
+void data:: printCrackedPassOnline() {
+    int i = 0;
+    for (const passdata& data : passVector) {
+        if ( !data.printed && data.crackedPass != "---" ) {
+            passdata p = data;
+            p.printed = true;
+            passVector[i] = p;
+       
+            cout << " Hasło użytkownika" << data.username
+                 << "  zostało złamane. \tHasło: " << data.crackedPass << endl;
+        }
+        ++i;
+    }
 }
 
 
@@ -121,10 +135,10 @@ void data:: printAllData() {
              << ",\t hash: "  << data.hash
              << ",\t email: " << data.email
              << ",\t uname: " << data.username
-             << std::endl;
+             << ",\t crackedPass: " << data.crackedPass<< endl;
     cout << "\n Dict data: \n\n";
     for (const dictdata& data : dictVector)
-        cout << " word: " << data.word << std::endl;
+        cout << " word: " << data.word << endl;
 }
 
 

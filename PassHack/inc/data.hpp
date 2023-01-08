@@ -7,6 +7,7 @@ struct passdata {       // each row from pass data file
     string email;
     string username;
     string crackedPass;
+    bool   printed;     // flag to check if data was printed before
 };
 
 struct dictdata {       // each row from dict data file
@@ -16,9 +17,8 @@ struct dictdata {       // each row from dict data file
 class data {
     string passPath;    // path to file with pass data
     string dictPath;    // path to file with dict data
-    
+
 public:
-    
     vector<passdata> passVector;    // vector with pass data
     vector<dictdata> dictVector;    // vector with dict data
     
@@ -30,6 +30,7 @@ public:
     void loadAllData();             // loading all data needed
     void printPassData();           // cout all pass data
     void printCrackedPassData();    // cout all cracked passwords
+    void printCrackedPassOnline();  // cout cracked passwords on the fly
     void printDictData();           // cout all dict data
     void printAllData();            // cout all data
     void freeData();                // free memory

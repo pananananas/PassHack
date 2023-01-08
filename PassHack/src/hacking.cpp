@@ -3,7 +3,7 @@
 void producer0(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-//        cout << " Jestem wątkiem 0\n";
+
         string word = dict.word;
         
         isPassCracked(Data, word);
@@ -27,7 +27,7 @@ void producer0(data &Data) {
 void producer1(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-//        cout << " Jestem wątkiem 1\n";
+        
         string word = dict.word;
         
         word[0] = toupper(word[0]);
@@ -58,7 +58,7 @@ void producer1(data &Data) {
 void producer2(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-//        cout << " Jestem wątkiem 2\n";
+
         string word = dict.word;
         
         for (size_t i = 0; i < word.size(); ++i)
@@ -85,7 +85,7 @@ void producer2(data &Data) {
 }
 
 void producer3(data &Data) {
-    string specialChar = "~`!@#$%^&*()_+-={}\\|; :'\",<.>/?";
+    string specialChar = "~`!@#$%^&*()_+-={}\\|;:'\",<.>/?";
     
     for (const dictdata& dict : Data.dictVector) {
         
@@ -107,6 +107,48 @@ void producer3(data &Data) {
     }
 }
 
+void producer4(data &Data) {
+    
+    for (const dictdata& d1 : Data.dictVector)
+        for (const dictdata& d2 : Data.dictVector) {
+            string password = d1.word + d2.word;
+            isPassCracked(Data, password);
+        }
+}
+
+void producer5(data &Data) {
+    
+    for (const dictdata& d1 : Data.dictVector) {
+        for (const dictdata& d2 : Data.dictVector) {
+            
+            string password = d1.word + " " + d2.word;
+            isPassCracked(Data, password);
+        }
+    }
+}
+
+void producer6(data &Data) {
+    string specialChar = "~`!@#$%^&*()_+-={}\\|;:'\",<.>/?";
+    
+    for (const dictdata& d1 : Data.dictVector)
+        for (const dictdata& d2 : Data.dictVector)
+            for (int i = 0; i < specialChar.length(); ++i) {
+                
+                string password = d1.word + specialChar[i] + d2.word;
+                isPassCracked(Data, password);
+            }
+}
+
+void producer7(data &Data) {
+    
+    for (const dictdata& d1 : Data.dictVector)
+        for (const dictdata& d2 : Data.dictVector)
+            for (const dictdata& d3 : Data.dictVector) {
+                
+                string password = d1.word + " " + d2.word + " " + d3.word;
+                isPassCracked(Data, password);
+            }
+}
 
 bool isPassCracked(data &Data, string word) {
     int i = 0;
@@ -122,7 +164,7 @@ bool isPassCracked(data &Data, string word) {
 
 bool passCrakced(data &Data, string word, int i) {
     
-    printCrackedPass(Data, word, i);
+//    printCrackedPass(Data, word, i);
     saveCrackedPass(Data, word, i);
 
     return 1;
