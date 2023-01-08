@@ -25,12 +25,6 @@ int main() {
         }
     });
 
-    
-    
-    
-    
-    
-    
 //    D.printAllData();
     
     t0.join();
