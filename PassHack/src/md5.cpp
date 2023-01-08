@@ -1,10 +1,3 @@
-//
-//  md5.cpp
-//  PassHack
-//
-//  Created by Eryk Wójcik on 07/01/2023.
-//
-
 #include "md5.hpp"
 /* MD5
  converted to C++ class by Frank Thilo (thilo@unix-ag.org)

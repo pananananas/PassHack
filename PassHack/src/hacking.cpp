@@ -3,7 +3,7 @@
 void producer0(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-        
+        cout << " Jestem wątkiem 0\n";
         string word = dict.word;
         
         isPassCracked(Data, word);
@@ -16,6 +16,7 @@ void producer0(data &Data) {
                 
                 string wPreNPostFix = to_string(j) + wPostfix;
                 isPassCracked(Data, wPreNPostFix);
+                
             }
             isPassCracked(Data, wPrefix);
             isPassCracked(Data, wPostfix);
@@ -26,7 +27,7 @@ void producer0(data &Data) {
 void producer1(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-        
+        cout << " Jestem wątkiem 1\n";
         string word = dict.word;
         
         word[0] = toupper(word[0]);
@@ -46,6 +47,7 @@ void producer1(data &Data) {
                 string wPreNPostFix = to_string(j) + wPostfix;
                 
                 isPassCracked(Data, wPreNPostFix);
+                
             }
             isPassCracked(Data, wPrefix);
             isPassCracked(Data, wPostfix);
@@ -56,7 +58,7 @@ void producer1(data &Data) {
 void producer2(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-        
+        cout << " Jestem wątkiem 2\n";
         string word = dict.word;
         
         for (size_t i = 0; i < word.size(); ++i)
@@ -74,6 +76,7 @@ void producer2(data &Data) {
                 string wPreNPostFix = to_string(j) + wPostfix;
                 
                 isPassCracked(Data, wPreNPostFix);
+                
             }
             isPassCracked(Data, wPrefix);
             isPassCracked(Data, wPostfix);
@@ -107,8 +110,10 @@ void producer3(data &Data) {
 
 bool isPassCracked(data &Data, string word) {
     int i = 0;
+    string wordhash = md5(word);
+    
     for (const passdata& pass : Data.passVector) {
-        if (pass.hash == md5(word))
+        if (pass.hash == wordhash)
             return passCrakced(Data, word, i);
         ++i;
     }
@@ -124,9 +129,9 @@ bool passCrakced(data &Data, string word, int i) {
 }
 
 void saveCrackedPass(data &Data, string word, int i) {
-    passdata& p = Data.passVector[i];       // Zapis złamanego hasła w passVector
+    passdata p = Data.passVector[i];
     p.crackedPass = word;
-    Data.passVector[i] = p;
+    Data.passVector[i] = p;       // Zapis złamanego hasła w passVector
 }
 
 void printCrackedPass(data Data, string word, int i) {

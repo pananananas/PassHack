@@ -86,7 +86,7 @@ void data:: printPassData() {
 
 void data:: printCrackedPassData() {
     
-    cout << "\n Cracked pass data: \n\n";
+//    cout << "\n Cracked pass data: \n\n";
     for (const passdata& data : passVector)
         if (data.crackedPass != "---")
         cout << " ID: "       << data.ID
