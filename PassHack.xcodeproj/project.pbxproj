@@ -32,7 +32,7 @@
 		2500A17F295D9FB6008F6133 /* files.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = files.cpp; sourceTree = "<group>"; };
 		2500A180295D9FB6008F6133 /* files.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = files.hpp; sourceTree = "<group>"; };
 		2500A183295DA313008F6133 /* slownik.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slownik.txt; sourceTree = "<group>"; };
-		2500A184295DA314008F6133 /* hasla.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla.txt; sourceTree = "<group>"; };
+		2500A184295DA314008F6133 /* hasla2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla2.txt; sourceTree = "<group>"; };
 		2500A186295DAA7B008F6133 /* includes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = includes.hpp; sourceTree = "<group>"; };
 		2500A188295DBDD0008F6133 /* hasla4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla4.txt; sourceTree = "<group>"; };
 		2500A189295DBDD0008F6133 /* slownik4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slownik4.txt; sourceTree = "<group>"; };
@@ -40,6 +40,10 @@
 		2500E28D295DD879008F6133 /* hacking.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = hacking.hpp; sourceTree = "<group>"; };
 		253C7601296A0AB700CC018C /* md5.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = md5.cpp; sourceTree = "<group>"; };
 		253C7602296A0AB700CC018C /* md5.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = md5.hpp; sourceTree = "<group>"; };
+		253C7604296AF57500CC018C /* hasla.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla.txt; sourceTree = "<group>"; };
+		253C7605296AF57600CC018C /* hasla3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla3.txt; sourceTree = "<group>"; };
+		253C7606296AF57600CC018C /* hasla5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla5.txt; sourceTree = "<group>"; };
+		253C7607296AF7B300CC018C /* slownik5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slownik5.txt; sourceTree = "<group>"; };
 		25791CA629509FA0007200C0 /* PassHack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PassHack; sourceTree = BUILT_PRODUCTS_DIR; };
 		25791CA929509FA0007200C0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,10 +86,14 @@
 		2500A182295DA297008F6133 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				2500A184295DA314008F6133 /* hasla.txt */,
+				253C7604296AF57500CC018C /* hasla.txt */,
+				2500A184295DA314008F6133 /* hasla2.txt */,
+				253C7605296AF57600CC018C /* hasla3.txt */,
 				2500A188295DBDD0008F6133 /* hasla4.txt */,
+				253C7606296AF57600CC018C /* hasla5.txt */,
 				2500A183295DA313008F6133 /* slownik.txt */,
 				2500A189295DBDD0008F6133 /* slownik4.txt */,
+				253C7607296AF7B300CC018C /* slownik5.txt */,
 			);
 			path = data;
 			sourceTree = "<group>";

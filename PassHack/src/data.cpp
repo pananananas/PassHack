@@ -7,6 +7,15 @@ data:: data(int dataConfig) {
     if (dataConfiguration == 2) {
         passPath = passFilePath2;
         dictPath = dictFilePath2;
+    } else if (dataConfiguration == 3) {
+        passPath = passFilePath3;
+        dictPath = dictFilePath3;
+    } else if (dataConfiguration == 4) {
+        passPath = passFilePath4;
+        dictPath = dictFilePath4;
+    } else if (dataConfiguration == 5) {
+        passPath = passFilePath5;
+        dictPath = dictFilePath5;
     } else {
         passPath = passFilePath1;
         dictPath = dictFilePath1;

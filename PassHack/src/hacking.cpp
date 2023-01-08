@@ -3,7 +3,7 @@
 void producer0(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-        cout << " Jestem wątkiem 0\n";
+//        cout << " Jestem wątkiem 0\n";
         string word = dict.word;
         
         isPassCracked(Data, word);
@@ -27,7 +27,7 @@ void producer0(data &Data) {
 void producer1(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-        cout << " Jestem wątkiem 1\n";
+//        cout << " Jestem wątkiem 1\n";
         string word = dict.word;
         
         word[0] = toupper(word[0]);
@@ -58,7 +58,7 @@ void producer1(data &Data) {
 void producer2(data &Data) {
     
     for (const dictdata& dict : Data.dictVector) {
-        cout << " Jestem wątkiem 2\n";
+//        cout << " Jestem wątkiem 2\n";
         string word = dict.word;
         
         for (size_t i = 0; i < word.size(); ++i)

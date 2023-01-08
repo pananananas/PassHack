@@ -2,7 +2,7 @@
 
 int main() {
     
-    data D(1);
+    data D(2);
     
     D.loadAllData();
     
@@ -16,10 +16,7 @@ int main() {
     thread t2([&]() {   producer2(D);   });
     thread t3([&]() {
         while (t0.joinable() || t1.joinable() || t2.joinable()) {
-//            for (const auto& p : D.passVector) {
-                D.printCrackedPassData();
-            
-            
+//                D.printCrackedPassData();
             // Odśwież dane co 1 sekundę
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
@@ -32,7 +29,7 @@ int main() {
     t2.join();
     t3.join();
     D.freeData();
-    
+    D.printCrackedPassData();
     return 0;
 }
 
