@@ -1,4 +1,5 @@
 #include "data.hpp"
+extern mutex mutex;
 
 
 data:: data(int dataConfig) {
@@ -24,7 +25,6 @@ data:: data(int dataConfig) {
         dictPath = dictFilePath1;
     }
 }
-
 
 bool data::loadPassData() {
     
@@ -56,7 +56,6 @@ bool data::loadPassData() {
     return 0;
 }
 
-
 bool data::loadDictData() {
     
     std::ifstream dict_file(dictPath);
@@ -75,51 +74,53 @@ bool data::loadDictData() {
     return 0;
 }
 
-
 void data::loadAllData() {
     loadPassData();
     loadDictData();
 }
 
-
 void data:: printPassData() {
     cout << "\n Pass data: \n\n";
-    for (const passdata& data : passVector)
+    for (const passdata& data : passVector) {
+        mutex.lock();
         cout << " ID: "  << data.ID
-        << ",\t hash: "  << data.hash
-        << ",\t email: " << data.email
-        << ",\t uname: " << data.username
-        << ",\t crackedPass: " << data.crackedPass << endl;
+             << ",\t hash: "  << data.hash
+             << ",\t email: " << data.email
+             << ",\t uname: " << data.username
+             << ",\t crackedPass: " << data.crackedPass << endl;
+        mutex.unlock();
+    }
 }
-
 
 void data:: printCrackedPassData() {
     cout << "\n\n Done. \n Cracked pass data: \n\n";
-    for (const passdata& data : passVector)
+    for (const passdata& data : passVector) {
+        mutex.lock();
         if (data.crackedPass != "---" )
             cout << " ID: "  << data.ID
                  << ",\t hash: "  << data.hash
                  << ",\t email: " << data.email
                  << ",\t uname: " << data.username
                  << ",\t crackedPass: " << data.crackedPass << endl;
+        mutex.unlock();
+    }
 }
-
 
 void data:: printCrackedPassOnline() {
     int i = 0;
     for (const passdata& data : passVector) {
+        mutex.lock();
         if ( !data.printed && data.crackedPass != "---" ) {
             passdata p = data;
             p.printed = true;
             passVector[i] = p;
-       
             cout << " Hasło użytkownika" << data.username
                  << "  zostało złamane. \tHasło: " << data.crackedPass << endl;
         }
         ++i;
+        mutex.unlock();
     }
 }
-
 
 void data:: printDictData() {
     cout << "\n Dict data: \n\n";
@@ -127,20 +128,21 @@ void data:: printDictData() {
         cout << " word: " << data.word << std::endl;
 }
 
-
 void data:: printAllData() {
     cout << "\n Pass data: \n\n";
-    for (const passdata& data : passVector)
+    for (const passdata& data : passVector){
+        mutex.lock();
         cout << " ID: "       << data.ID
              << ",\t hash: "  << data.hash
              << ",\t email: " << data.email
              << ",\t uname: " << data.username
              << ",\t crackedPass: " << data.crackedPass<< endl;
+        mutex.unlock();
+    }
     cout << "\n Dict data: \n\n";
     for (const dictdata& data : dictVector)
         cout << " word: " << data.word << endl;
 }
-
 
 void data:: freeData() {
     passVector.clear();
