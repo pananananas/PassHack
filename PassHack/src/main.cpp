@@ -19,8 +19,7 @@ int main() {
     T[8] = thread ( [&]() {
         while (T[0].joinable() || T[1].joinable() || T[2].joinable() || T[3].joinable() ||
                T[4].joinable() || T[5].joinable() || T[6].joinable() || T[7].joinable())
-            D.printCrackedPassOnline();
-    });
+            D.printCrackedPassOnline(); });
     
     for (thread& t : T)  t.join();
     
