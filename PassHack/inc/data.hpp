@@ -1,7 +1,7 @@
 #pragma once
 #include "files.hpp"
 
-struct passdata {
+struct passdata {       // each row from pass data file
     string ID;
     string hash;
     string email;
@@ -9,28 +9,28 @@ struct passdata {
     string crackedPass;
 };
 
-struct dictdata {
+struct dictdata {       // each row from dict data file
     string word;
 };
 
 class data {
-    string passPath;
-    string dictPath;
+    string passPath;    // path to file with pass data
+    string dictPath;    // path to file with dict data
     
 public:
     
-    vector<passdata> passVector;
-    vector<dictdata> dictVector;
+    vector<passdata> passVector;    // vector with pass data
+    vector<dictdata> dictVector;    // vector with dict data
     
-    int dataConfiguration;
+    int dataConfiguration;          // ID of data configuration
     
-    data(int dataConfig);
-    bool loadPassData();
-    bool loadDictData();
-    void loadAllData();
-    void printPassData();
-    void printCrackedPassData();
-    void printDictData();
-    void printAllData();
-    void freeData();
+    data(int dataConfig);           // initializing data, you set a data configuration
+    bool loadPassData();            // loading pass data from chosen data configuration
+    bool loadDictData();            // loading dict data from chosen data configuration
+    void loadAllData();             // loading all data needed
+    void printPassData();           // cout all pass data
+    void printCrackedPassData();    // cout all cracked passwords
+    void printDictData();           // cout all dict data
+    void printAllData();            // cout all data
+    void freeData();                // free memory
 };

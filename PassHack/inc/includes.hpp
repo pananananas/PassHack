@@ -21,4 +21,4 @@ using std :: endl;
 #define passFilePath2  "data/hasla2.txt"
 #define dictFilePath2  "data/slownik2.txt"
 
-#define NumLimit 100
+#define NumLimit 100        // limit of numbers in pre and postfix

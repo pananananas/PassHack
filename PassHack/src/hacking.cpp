@@ -6,6 +6,8 @@ void producer0(data &Data) {
         
         string word = dict.word;
         
+        isPassCracked(Data, word);
+        
         for (int i = 0; i < NumLimit; ++i) {
             
             string wPostfix = word + to_string(i);
@@ -13,7 +15,6 @@ void producer0(data &Data) {
             for (int j = 0; j < NumLimit; ++j) {
                 
                 string wPreNPostFix = to_string(j) + wPostfix;
-                
                 isPassCracked(Data, wPreNPostFix);
             }
             isPassCracked(Data, wPrefix);
@@ -29,6 +30,8 @@ void producer1(data &Data) {
         string word = dict.word;
         
         word[0] = toupper(word[0]);
+        
+        isPassCracked(Data, word);
         
         for (size_t i = 1; i < word.size(); ++i)
             word[i] = tolower(word[i]);
@@ -58,6 +61,8 @@ void producer2(data &Data) {
         
         for (size_t i = 0; i < word.size(); ++i)
             word[i] = toupper(word[i]);
+        
+        isPassCracked(Data, word);
         
         for (int i = 0; i < NumLimit; ++i) {
             
