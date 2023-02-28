@@ -14,5 +14,6 @@ void producer6(data &Data);      // two words separated by special char
 
 void producer7(data &Data);      // three words separated by space
 
-bool isPassCracked(data &Data, string word);            // check if passed word is password
-bool saveCrackedPass(data &Data, string word, int i);   // saving cracked pass in passVector, returns true if succeeded
+bool isPassCracked(data &Data, string phrase);          // check if passed phrase is password
+bool saveCrackedPass(data &Data, string phrase, int i); // saving cracked pass in passVector,
+                                                        // returns true if succeeded

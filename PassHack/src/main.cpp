@@ -1,8 +1,7 @@
 #include "hacking.hpp"
 
 int main() {
-    
-    data D(6);
+    data D(7);
     D.loadAllData();
 
     array <thread, 9> T;
@@ -15,14 +14,13 @@ int main() {
     T[5] = thread ( producer5, ref(D) );
     T[6] = thread ( producer6, ref(D) );
     T[7] = thread ( producer7, ref(D) );
-
-    T[8] = thread ( [&]() {
+    T[8] = thread ( [&]() {   // passing new nameless function containing only while statement
         while ( T[0].joinable() || T[1].joinable() || T[2].joinable() || T[3].joinable() ||
                 T[4].joinable() || T[5].joinable() || T[6].joinable() || T[7].joinable() )
-            D.printCrackedPassOnline(); });
+            D.printCrackedPassOnline();
+    });
     
-    for ( thread& t : T )  t.join();
-    
-    D.freeData();
+    for ( thread & t : T )  t.join();
+    D.summariseNFreeData();
     return 0;
 }

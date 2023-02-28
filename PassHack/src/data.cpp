@@ -20,6 +20,9 @@ data:: data(int dataConfig) {
     } else if (dataConfiguration == 6) {
         passPath = passFilePath6;
         dictPath = dictFilePath6;
+    } else if (dataConfiguration == 7) {
+        passPath = passFilePath7;
+        dictPath = dictFilePath7;
     } else {
         passPath = passFilePath1;
         dictPath = dictFilePath1;
@@ -35,18 +38,17 @@ bool data::loadPassData() {
         std::istringstream iss(line);
         
         // Wczytujemy dane z kolumn do zmiennych
-        string col1, col2, col3;
-        iss >> col1 >> col2 >> col3;
+        string col1, col2, col3, col4, rest;
+        iss >> col1 >> col2 >> col3 >> col4;
         
-        // Pobieramy resztę linii po wczytaniu poprzednich kolumn
-        string col4;
-        getline(iss, col4);
+        // Pobieramy resztę linii do rest po wczytaniu poprzednich kolumn
+        getline(iss, rest);
         
         passdata data;
         data.ID = col1;
         data.hash = col2;
         data.email = col3;
-        data.username = col4;
+        data.username = col4 + rest;    // i dodajemy resztę linii do początku username, który jest col4. a to wszystko aby obsługiwać username zawierające spację :>
         data.crackedPass = "---";
         data.printed = false;
         passVector.push_back(data);
@@ -114,8 +116,8 @@ void data:: printCrackedPassOnline() {
             passdata p = data;
             p.printed = true;
             passVector[i] = p;
-            cout << " Hasło użytkownika" << data.username
-                 << "  zostało złamane. \tHasło: " << data.crackedPass << endl;
+            cout << " Hasło użytkownika: \"" << data.username
+                 << "\" zostało złamane, \t hasło: " << data.crackedPass << endl;
         }
         ++i;
         mutex.unlock();
@@ -144,10 +146,24 @@ void data:: printAllData() {
         cout << " word: " << data.word << endl;
 }
 
+void data::summariseNFreeData(){
+    int i = 0;
+    for (const passdata& data : passVector)
+        if ( data.crackedPass != "---" )
+            ++i;
+    if (i > 0)
+        cout << "\n Hacking passwords sucseeded. I guessed " << i << " passwords. \n\n";
+    else if (i == 1)
+        cout << "\n Hacking passwords sucseeded. I guessed " << i << " password. \n\n";
+    else
+        cout << "\n No passwords guessed. :c \n\n";
+    freeData();
+}
+
 void data:: freeData() {
     passVector.clear();
     passVector.shrink_to_fit();
-    
     dictVector.clear();
     dictVector.shrink_to_fit();
 }
+

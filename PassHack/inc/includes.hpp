@@ -35,5 +35,8 @@ using std :: ref;
 #define dictFilePath5  "data/slownik5.txt"
 #define passFilePath6  "data/hasla6.txt"
 #define dictFilePath6  "data/slownik.txt"
+#define passFilePath7  "data/am_pass.txt"
+#define dictFilePath7  "data/panaslownik.txt"
+
 
 #define NumLimit 100        // limit of numbers in pre and postfix

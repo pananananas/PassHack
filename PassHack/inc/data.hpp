@@ -24,7 +24,7 @@ public:
     
     int dataConfiguration;          // ID of data configuration
     
-    data(int dataConfig);           // initializing data, you set a data configuration
+    data(int dataConfig);           // initializing data, you pass a data configuration
     bool loadPassData();            // loading pass data from chosen data configuration
     bool loadDictData();            // loading dict data from chosen data configuration
     void loadAllData();             // loading all data needed
@@ -33,5 +33,6 @@ public:
     void printCrackedPassOnline();  // cout cracked passwords on the fly
     void printDictData();           // cout all dict data
     void printAllData();            // cout all data
+    void summariseNFreeData();      // sumarises the symulation and calls out next func
     void freeData();                // free memory
 };

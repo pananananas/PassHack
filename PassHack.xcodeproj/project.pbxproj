@@ -45,6 +45,9 @@
 		253C7606296AF57600CC018C /* hasla5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla5.txt; sourceTree = "<group>"; };
 		253C7607296AF7B300CC018C /* slownik5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slownik5.txt; sourceTree = "<group>"; };
 		253C7608296B0B2400CC018C /* hasla6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hasla6.txt; sourceTree = "<group>"; };
+		253C7609297084B100CC018C /* am_pass.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = am_pass.txt; sourceTree = "<group>"; };
+		253C760A297084B100CC018C /* dictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary.txt; sourceTree = "<group>"; };
+		253C760B2970902500CC018C /* panaslownik.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = panaslownik.txt; sourceTree = "<group>"; };
 		25791CA629509FA0007200C0 /* PassHack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PassHack; sourceTree = BUILT_PRODUCTS_DIR; };
 		25791CA929509FA0007200C0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +99,9 @@
 				2500A183295DA313008F6133 /* slownik.txt */,
 				2500A189295DBDD0008F6133 /* slownik4.txt */,
 				253C7607296AF7B300CC018C /* slownik5.txt */,
+				253C7609297084B100CC018C /* am_pass.txt */,
+				253C760A297084B100CC018C /* dictionary.txt */,
+				253C760B2970902500CC018C /* panaslownik.txt */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -311,6 +317,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6DXJ6J4G8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -321,6 +329,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6DXJ6J4G8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

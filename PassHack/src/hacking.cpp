@@ -125,27 +125,27 @@ void producer7(data &Data) {
                 isPassCracked(Data, d1.word + " " + d2.word + " " + d3.word);
 }
 
-bool isPassCracked(data &Data, string word) {
+bool isPassCracked(data &Data, string phrase) {
     int i = 0;
-    string wordhash = md5(word);
+    string wordhash = md5(phrase);
     for (const passdata& pass : Data.passVector) {
         if (pass.hash == wordhash)
-            return saveCrackedPass(Data, word, i);
+            return saveCrackedPass(Data, phrase, i);
         ++i;
     }
     return 0;
 }
 
-bool saveCrackedPass(data &Data, string word, int i) {
+bool saveCrackedPass(data &Data, string phrase, int i) {
     
     passdata p = Data.passVector[i];
-    p.crackedPass = word;
+    p.crackedPass = phrase;
     
     mutex.lock();
     Data.passVector[i] = p;       // Zapis złamanego hasła w passVector
     mutex.unlock();
     
-    if (Data.passVector[i].crackedPass != word) {
+    if (Data.passVector[i].crackedPass != phrase) {
         cerr << " SAVING DATA ERROR! \n";
         return 0;
     }
